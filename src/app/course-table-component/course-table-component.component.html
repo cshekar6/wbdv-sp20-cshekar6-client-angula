@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+      <h1>Course List</h1>
+  </nav>
+<table class="mt-1 table table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Course</th>
+    <th scope="col">Professor</th>
+    <th scope="col">LastUpdated</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>
+        <i class="material-icons" style="color: dodgerblue">
+          insert_drive_file
+        </i>
+        <a routerLink="table/courses/{{course._id}}" style="color: blue">
+       {{course.title}}
+        </a>
+      </td>
+      <td>
+        Prof. Jose
+      </td>
+      <td>
+       {{currentDate}}
+      </td>
+   </tr>
+  </tbody>
+</table>
+</div>
+
+

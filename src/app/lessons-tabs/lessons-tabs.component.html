@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item nav-fill"
+      [class]="{'active': lessonId === lesson._id}"
+      *ngFor="let lesson of lessons" (click)="redirect({courseId: courseId,
+  moduleId: moduleId,lessonId: lesson._id})">
+    <a class="nav-link">
+      {{lesson.title}}
+    </a>
+  </li>
+</ul>

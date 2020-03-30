@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <li *ngFor="let module of modules" class="list-group-item list-group-item-light"
+      [class]="{'active': moduleId === module._id}"
+  (click)="redirect({courseId: courseID,
+  moduleId: module._id})">
+    {{module.title}}
+  </li>
+</ul>
