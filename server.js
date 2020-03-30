@@ -7,7 +7,7 @@ app.get('/*', function(req,res) {
                          '/dist/wbdv-sp20-cshekar6-client-angular/index.html'));});
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin",
-             "https://wbdv-sp20-cse-client-angular.herokuapp.com/");
+             "*");
   res.header("Access-Control-Allow-Headers",
              "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods",
