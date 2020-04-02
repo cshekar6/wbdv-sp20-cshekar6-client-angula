@@ -1,0 +1,30 @@
+<div>
+  {{question.question}}
+  <i [class.fa-check]= "correct"
+     [class.fa-times]= "!correct && grading"
+     class="fa" aria-hidden="true"></i>
+</div>
+
+<div *ngFor="let option of question.choices">
+  <div class="col-3 border"
+       [class.bg-success] = "((correct && question.answer === option) || (!correct && grading && option === question.correct))"
+       [class.bg-danger]= "!correct && grading && question.answer === option">
+  <label>
+    <input [(ngModel)]="question.answer"
+           type="radio"
+           [disabled]="grading"
+           value="{{option}}"
+           name="{{question._id}}"/>
+    {{option}}
+  </label>
+    <i [class.fa-check]= "((correct && question.answer === option) || (!correct && grading && option === question.correct))"
+       [class.fa-times]= "!correct && grading && question.answer === option"
+       class="fa float-right" aria-hidden="true"></i>
+</div>
+</div>
+<div class="mt-1">
+Your answer: {{question.answer}}
+</div>
+
+<button [class.grade]="!grading" [class.gradeSelect]="grading"
+        (click)="grade()" class="mt-3" type="button" >Grade</button>

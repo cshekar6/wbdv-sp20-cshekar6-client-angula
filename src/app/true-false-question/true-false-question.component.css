@@ -1,0 +1,17 @@
+import {@fortawesome/fontawesome-free/css/all.min.css}
+.grade {
+  background: limegreen;
+  color: white;
+}
+.gradeSelect {
+  background: darkgreen;
+  color: white;
+}
+
+.fa-check {
+  color: darkgreen;
+}
+
+.fa-times {
+  color: darkred;
+}

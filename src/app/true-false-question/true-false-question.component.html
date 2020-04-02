@@ -1,0 +1,40 @@
+<div>
+{{question.question}}
+<i [class.fa-check]= "correct"
+   [class.fa-times]= "!correct && grading"
+   class="fa" aria-hidden="true"></i>
+</div>
+
+  <div class="col-2 border"
+       [class.bg-success] = "((correct && answer==='true') || (!correct && grading && answer==='false'))"
+       [class.bg-danger]= "!correct && grading && answer==='true'">
+    <label>
+      <input [disabled]="grading" type="radio"
+             value="true"
+             [(ngModel)]="answer"
+             name="{{question._id}}"/>
+      True
+    </label>
+    <i [class.fa-check]= "((correct && answer==='true') || (!correct && grading && answer==='false'))"
+       [class.fa-times]= "!correct && grading && answer==='true'"
+      class="fa float-right" aria-hidden="true"></i>
+  </div>
+  <div class="col-2 border"
+       [class.bg-success] = "((correct && answer==='false') || (!correct && grading && answer=='true'))"
+       [class.bg-danger]= "!correct && grading && answer==='false'">
+    <label>
+      <input [disabled]="grading" type="radio"
+             value="false"
+             [(ngModel)]="answer"
+             name="{{question._id}}"/>
+      False
+    </label>
+    <i [class.fa-check]= "((correct && answer==='false') || (!correct && grading && answer=='true'))"
+       [class.fa-times]= "!correct && grading && answer==='false'"
+       class="fa float-right" aria-hidden="true"></i>
+  </div>
+<div class="mt-1">
+<span >Your answer: {{answer}}</span>
+</div>
+<button [class.grade]="!grading" [class.gradeSelect]="grading"
+        (click)="grade()" class="mt-3" type="button" >Grade</button>

@@ -12,6 +12,13 @@ import { ModuleListComponent } from './module-list/module-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LessonsTabsComponent } from './lessons-tabs/lessons-tabs.component';
+import { QuizzesComponentComponent } from './quizzes-component/quizzes-component.component';
+import {QuizServiceClient} from './services/quiz.service.client';
+import {QuestionServiceClient} from './services/question.service.client';
+import { QuizComponent } from './quiz/quiz.component';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,18 +26,25 @@ import { LessonsTabsComponent } from './lessons-tabs/lessons-tabs.component';
     CourseTableComponentComponent,
     CourseViewerComponent,
     ModuleListComponent,
-    LessonsTabsComponent
+    LessonsTabsComponent,
+    QuizzesComponentComponent,
+    QuizComponent,
+    TrueFalseQuestionComponent,
+    MultipleChoiceQuestionComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    FormsModule
+  ],
   providers: [
     CourseServiceClient,
     ModuleServiceClient,
-    LessonServiceClient
+    LessonServiceClient,
+    QuizServiceClient,
+    QuestionServiceClient
   ],
   bootstrap: [AppComponent]
 })

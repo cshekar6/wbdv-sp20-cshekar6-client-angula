@@ -7,7 +7,7 @@
   <tr>
     <th scope="col">Course</th>
     <th scope="col">Professor</th>
-    <th scope="col">LastUpdated</th>
+    <th scope="col">Quizzes</th>
   </tr>
   </thead>
 
@@ -25,7 +25,9 @@
         Prof. Jose
       </td>
       <td>
-       {{currentDate}}
+        <a href="/courses/{{course._id}}/quizzes">
+          Quizzes
+        </a>
       </td>
    </tr>
   </tbody>
