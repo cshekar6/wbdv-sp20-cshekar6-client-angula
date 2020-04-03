@@ -5,7 +5,7 @@
    class="fa" aria-hidden="true"></i>
 </div>
 
-  <div class="col-2 border"
+  <div class="col-2 border border-white py-1"
        [class.bg-success] = "((correct && answer==='true') || (!correct && grading && answer==='false'))"
        [class.bg-danger]= "!correct && grading && answer==='true'">
     <label>
@@ -19,7 +19,7 @@
        [class.fa-times]= "!correct && grading && answer==='true'"
       class="fa float-right" aria-hidden="true"></i>
   </div>
-  <div class="col-2 border"
+  <div class="col-2 border border-white py-1"
        [class.bg-success] = "((correct && answer==='false') || (!correct && grading && answer=='true'))"
        [class.bg-danger]= "!correct && grading && answer==='false'">
     <label>

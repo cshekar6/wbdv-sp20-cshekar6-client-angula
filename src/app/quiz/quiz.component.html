@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <li *ngFor="let question of questions" class="list-group-item">
+  <li *ngFor="let question of questions" class="mt-1 list-group-item list-group-item-dark">
     <div [ngSwitch]="question.type">
       <app-multiple-choice-question
         [question]="question"
