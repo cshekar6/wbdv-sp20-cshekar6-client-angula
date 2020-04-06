@@ -24,8 +24,13 @@ export class QuizComponent implements OnInit {
   }
 
   submitQuiz = () => {
+    fetch(`https://wbdv-sp20-cshekar6-server-node.herokuapp.com/api/quizzes/${this.quizId}/attempts`, {
+      method: 'POST',
+      body: JSON.stringify(this.questions),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json())
     this.loc.back();
   }
-
-
 }
