@@ -6,35 +6,35 @@
 </div>
 
   <div class="col-2 border border-white py-1"
-       [class.bg-success] = "((correct && answer==='true') || (!correct && grading && answer==='false'))"
-       [class.bg-danger]= "!correct && grading && answer==='true'">
+       [class.bg-success] = "((correct && question.answer==='true') || (!correct && grading && question.answer==='false'))"
+       [class.bg-danger]= "!correct && grading && question.answer==='true'">
     <label>
       <input [disabled]="grading" type="radio"
              value="true"
-             [(ngModel)]="answer"
+             [(ngModel)]="question.answer"
              name="{{question._id}}"/>
       True
     </label>
-    <i [class.fa-check]= "((correct && answer==='true') || (!correct && grading && answer==='false'))"
-       [class.fa-times]= "!correct && grading && answer==='true'"
+    <i [class.fa-check]= "((correct && question.answer==='true') || (!correct && grading && question.answer==='false'))"
+       [class.fa-times]= "!correct && grading && question.answer==='true'"
       class="fa float-right" aria-hidden="true"></i>
   </div>
   <div class="col-2 border border-white py-1"
-       [class.bg-success] = "((correct && answer==='false') || (!correct && grading && answer=='true'))"
-       [class.bg-danger]= "!correct && grading && answer==='false'">
+       [class.bg-success] = "((correct && question.answer==='false') || (!correct && grading && question.answer=='true'))"
+       [class.bg-danger]= "!correct && grading && question.answer==='false'">
     <label>
       <input [disabled]="grading" type="radio"
              value="false"
-             [(ngModel)]="answer"
+             [(ngModel)]="question.answer"
              name="{{question._id}}"/>
       False
     </label>
-    <i [class.fa-check]= "((correct && answer==='false') || (!correct && grading && answer=='true'))"
-       [class.fa-times]= "!correct && grading && answer==='false'"
+    <i [class.fa-check]= "((correct && question.answer==='false') || (!correct && grading && question.answer=='true'))"
+       [class.fa-times]= "!correct && grading && question.answer==='false'"
        class="fa float-right" aria-hidden="true"></i>
   </div>
 <div class="mt-1">
-<span >Your answer: {{answer}}</span>
+<span >Your answer: {{question.answer}}</span>
 </div>
 <button [class.grade]="!grading" [class.gradeSelect]="grading"
         (click)="grade()" class="mt-3" type="button" >Grade</button>
