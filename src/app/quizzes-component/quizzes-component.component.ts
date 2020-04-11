@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {QuizServiceClient} from '../services/quiz.service.client';
 
@@ -25,5 +25,4 @@ export class QuizzesComponentComponent implements OnInit {
         .then(attempts => this.attempts = attempts);
     });
   }
-
 }

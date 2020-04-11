@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {QuizServiceClient} from '../services/quiz.service.client';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-quiz',
@@ -12,12 +11,15 @@ export class QuizComponent implements OnInit {
 
   constructor(private svc: QuizServiceClient,
               private route: ActivatedRoute,
-              private loc: Location) { }
+              private router: Router) { }
   questions = []
   quizId = ''
+  courseId = '';
+
   ngOnInit(): void {
     this.route.params.subscribe(ps => {
       this.quizId = ps.quizId;
+      this.courseId = ps.courseId;
       this.svc.findQuizById(this.quizId)
         .then(qs => this.questions = qs.questions);
     });
@@ -30,7 +32,6 @@ export class QuizComponent implements OnInit {
       headers: {
         'content-type': 'application/json'
       }
-    }).then(response => response.json())
-    this.loc.back();
+    }).then(response => response.json()).then(result => this.router.navigate([`/courses/${this.courseId}/result/quizzes/${result._id}`]));
   }
 }

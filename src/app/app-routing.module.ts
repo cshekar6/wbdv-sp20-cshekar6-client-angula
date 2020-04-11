@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: ':layout/courses/:cid/modules/:moduleId', component: CourseViewerComponent},
   {path: ':layout/courses/:cid/modules/:moduleId/lessons/:lessonId', component: CourseViewerComponent},
   {path: 'courses/:courseId/quizzes', component: QuizzesComponentComponent},
+  {path: 'courses/:courseId/result/quizzes/:attemptId', component: QuizzesComponentComponent},
   {path: 'courses/:courseId/quizzes/:quizId', component: QuizComponent}
 ];
 
